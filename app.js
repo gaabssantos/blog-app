@@ -148,7 +148,7 @@ app.use("/admin", admin);
 app.use("/usuarios", users);
 
 // Others
-const PORT = process.env.PORT || 8081;
+const PORT = process.env.PORT || 10000;
 app.listen(PORT, () => {
   console.log("Server is running!");
 });
