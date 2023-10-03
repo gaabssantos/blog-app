@@ -21,7 +21,7 @@
     "express-handlebars": "^7.1.2",
     "express-session": "^1.17.3",
     "middy": "^0.36.0",
-    "mongoose": "^5.0.0",
+    "mongoose": "^7.5.3",
     "netlify-cli": "^12.7.2",
     "netlify-lambda": "^2.0.15",
     "passport": "^0.6.0",
