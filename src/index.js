@@ -8,13 +8,13 @@ const path = require("path");
 const { default: mongoose, mongo } = require("mongoose");
 const session = require("express-session");
 const flash = require("connect-flash");
-require("./models/Post");
+require("../models/Post");
 const Post = mongoose.model("posts");
-require("./models/Category");
+require("../models/Category");
 const Category = mongoose.model("categories");
 const passport = require("passport");
-require("./config/auth.js")(passport);
-const db = require("./config/db");
+require("../config/auth.js")(passport);
+const db = require("../config/db");
 const dotenv = require("dotenv").config();
 const serverless = require("serverless-http");
 
