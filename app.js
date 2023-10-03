@@ -58,7 +58,7 @@ app.set("views", path.join(__dirname, "views"));
 // Mongoose
 mongoose.Promise = global.Promise;
 mongoose
-  .connect(db.mongoURI)
+  .connect(process.env.MONGO_URI_GLOBAL)
   .then(() => {
     console.log("Connected to Mongo!");
   })
