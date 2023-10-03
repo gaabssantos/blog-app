@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "main": "app.js",
   "scripts": {
-    "build": "netlify deploy --prod"
+    "start": "./node_modules/.bin/netlify-lambda serve .",
+    "build": "./node_modules/.bin/netlify-lambda build ."
   },
   "author": "Gabriel",
   "license": "ISC",
@@ -17,10 +18,12 @@
     "express": "^4.18.2",
     "express-handlebars": "^7.1.2",
     "express-session": "^1.17.3",
+    "middy": "^0.36.0",
     "mongoose": "^5.0.0",
     "netlify-cli": "^12.7.2",
     "netlify-lambda": "^2.0.15",
     "passport": "^0.6.0",
-    "passport-local": "^1.0.0"
+    "passport-local": "^1.0.0",
+    "serverless-http": "^3.2.0"
   }
 }

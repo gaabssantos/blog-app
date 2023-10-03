@@ -16,6 +16,9 @@ const passport = require("passport");
 require("./config/auth.js")(passport);
 const db = require("./config/db");
 const dotenv = require("dotenv").config();
+const serverless = require("serverless-http");
+
+const router = express.Router();
 
 // Sessão
 app.use(
@@ -72,7 +75,7 @@ mongoose
 app.use(express.static(path.join(__dirname, "public")));
 
 // Routes
-app.get("/", (req, res) => {
+router.get("/", (req, res) => {
   Post.find()
     .populate("category")
     .sort({ date: "desc" })
@@ -85,7 +88,7 @@ app.get("/", (req, res) => {
     });
 });
 
-app.get("/post/:slug", (req, res) => {
+router.get("/post/:slug", (req, res) => {
   Post.find({ slug: req.params.slug })
     .then((post) => {
       if (post) {
@@ -101,7 +104,7 @@ app.get("/post/:slug", (req, res) => {
     });
 });
 
-app.get("/categorias", (req, res) => {
+router.get("/categorias", (req, res) => {
   Category.find()
     .then((categories) => {
       res.render("categories/index", { categories: categories });
@@ -112,7 +115,7 @@ app.get("/categorias", (req, res) => {
     });
 });
 
-app.get("/categorias/:slug", (req, res) => {
+router.get("/categorias/:slug", (req, res) => {
   Category.findOne({ slug: req.params.slug })
     .then((category) => {
       if (category) {
@@ -141,15 +144,18 @@ app.get("/categorias/:slug", (req, res) => {
     });
 });
 
-app.get("/404", (req, res) => {
+router.get("/404", (req, res) => {
   res.send("Error 404!");
 });
 
 app.use("/admin", admin);
 app.use("/usuarios", users);
 
+module.exports.handler = serverless(app);
+app.use("/.netlify/functions/app", router);
+
 // Others
-const PORT = process.env.PORT;
-app.listen(PORT, () => {
-  console.log("Server is running!");
-});
+// const PORT = process.env.PORT;
+// app.listen(PORT, () => {
+//   console.log("Server is running!");
+// });
