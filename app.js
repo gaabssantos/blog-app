@@ -15,6 +15,7 @@ const Category = mongoose.model("categories");
 const passport = require("passport");
 require("./config/auth.js")(passport);
 const db = require("./config/db");
+const dotenv = require("dotenv").config();
 
 // Sessão
 app.use(
@@ -148,7 +149,7 @@ app.use("/admin", admin);
 app.use("/usuarios", users);
 
 // Others
-const PORT = process.env.PORT || 10000;
+const PORT = process.env.PORT;
 app.listen(PORT, () => {
   console.log("Server is running!");
 });
