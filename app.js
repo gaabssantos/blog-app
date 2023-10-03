@@ -14,7 +14,6 @@ require("./models/Category");
 const Category = mongoose.model("categories");
 const passport = require("passport");
 require("./config/auth.js")(passport);
-const db = require("./config/db");
 const dotenv = require("dotenv").config();
 
 // Sessão
@@ -58,7 +57,7 @@ app.set("views", path.join(__dirname, "views"));
 // Mongoose
 mongoose.Promise = global.Promise;
 mongoose
-  .connect(process.env.MONGO_URI_GLOBAL)
+  .connect(process.env.MONGO_URI_CONNECTION)
   .then(() => {
     console.log("Connected to Mongo!");
   })
