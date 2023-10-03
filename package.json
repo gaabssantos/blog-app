@@ -1,4 +1,13 @@
 {
+  "name": "blog-app",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "build": "netlify deploy --prod"
+  },
+  "author": "Gabriel",
+  "license": "ISC",
+  "description": "",
   "dependencies": {
     "@handlebars/allow-prototype-access": "^1.0.5",
     "bcryptjs": "^2.4.3",
@@ -9,20 +18,9 @@
     "express-handlebars": "^7.1.2",
     "express-session": "^1.17.3",
     "mongoose": "^5.0.0",
+    "netlify-cli": "^12.7.2",
+    "netlify-lambda": "^2.0.15",
     "passport": "^0.6.0",
     "passport-local": "^1.0.0"
-  },
-  "name": "blog-app",
-  "version": "1.0.0",
-  "main": "app.js",
-  "engines": {
-    "node": "18"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node app.js"
-  },
-  "author": "Gabriel",
-  "license": "ISC",
-  "description": ""
+  }
 }
