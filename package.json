@@ -6,7 +6,7 @@
     "node": "18.x"
   },
   "scripts": {
-    "start": "node app.js"
+    "start": "node ./src/app.js"
   },
   "author": "Gabriel",
   "license": "ISC",
