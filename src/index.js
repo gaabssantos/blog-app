@@ -16,7 +16,6 @@ const passport = require("passport");
 require("../config/auth.js")(passport);
 const db = require("../config/db");
 const dotenv = require("dotenv").config();
-const serverless = require("serverless-http");
 
 
 // Sessão
